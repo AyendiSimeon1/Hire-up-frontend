@@ -3,6 +3,7 @@ import React from 'react';
 
 interface PersonalInfoFormProps {
   handleChange: (info: PersonalInfo) => void;
+  
   personalInfo: PersonalInfo;
 }
 
