@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 
-import { useHistory } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 
 // Import your form components for personal information and skills
@@ -22,7 +22,7 @@ interface FormData {
 
 
 const ResumeForm: React.FC = () => {
-  const history = useHistory();
+  //const history = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     personalInfo: {
       name: '',
@@ -44,10 +44,10 @@ const ResumeForm: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    axios.post('your-api-endpoint', formData)
+    axios.post('http://127.0.0.1:8000/core/personal-information/', formData)
       .then(response => {
         console.log('Success:', response.data);
-        history.push('/success');
+        
       })
       .catch(error => {
         console.error('Error:', error);

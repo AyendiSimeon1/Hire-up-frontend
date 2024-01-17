@@ -1,7 +1,7 @@
 //import { useState } from 'react'
-import Data from './components/data.tsx';
+import ResumeForm from './components/data.tsx';
 import './App.css'
-import React from 'react';
+
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     
    
-      <Data />
+      <ResumeForm />
    
   )
 }

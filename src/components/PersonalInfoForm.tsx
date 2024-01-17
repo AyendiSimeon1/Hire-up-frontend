@@ -8,9 +8,9 @@ interface PersonalInfoFormProps {
 }
 
 interface PersonalInfo {
-  name?: string;
+  full_name?: string;
   email?: string;
-  phone?: string;
+  user?: number;
   address?: string;
   // Add more fields as required
 }
@@ -30,16 +30,36 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
       <form>
         {/* Form fields here */}
         <div>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="Full Name">Full Name:</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={personalInfo.name || ''}
+            id="full_name"
+            name="full_name"
+            value={personalInfo.full_name || ''}
             onChange={onInputChange}
           />
         </div>
-        {/* ... other fields ... */}
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={personalInfo.email || ''}
+            onChange={onInputChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="user">User:</label>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            value={personalInfo.user || ''}
+            onChange={onInputChange}
+          />
+        </div>
+        
       </form>
     </div>
   );
