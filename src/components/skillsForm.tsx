@@ -1,29 +1,25 @@
 // PersonalInfoForm.tsx
 import React from 'react';
 
-interface PersonalInfoFormProps {
-  handleChange: (info: PersonalInfo) => void;
+interface skillsFormProps {
+  handleChange: (info: skills) => void;
   
-  personalInfo: PersonalInfo;
+  skills: skills;
 }
 
-interface PersonalInfo {
-  
+interface skills {
   full_name?: string;
   email?: string;
   user?: string;
-  phone_number?: string;
   address?: string;
-  linkedin_profile?: string;
-  github_profile?: string;
-  
+  // Add more fields as required
 }
 
-const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, personalInfo }) => {
+const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skills }) => {
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange({
-      ...personalInfo,
+      ...skills,
       [name]: value,
     });
   };
@@ -32,14 +28,14 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
     <div>
       <h2>Personal Information</h2>
       <form>
-      
+        {/* Form fields here */}
         <div>
           <label htmlFor="Full Name">Full Name:</label>
           <input
             type="text"
             id="full_name"
             name="full_name"
-            value={personalInfo.full_name || ''}
+            value={skills.full_name || ''}
             onChange={onInputChange}
           />
         </div>
@@ -49,7 +45,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
             type="text"
             id="email"
             name="email"
-            value={personalInfo.email || ''}
+            value={skills.email || ''}
             onChange={onInputChange}
           />
         </div>
@@ -59,7 +55,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
             type="text"
             id="user"
             name="user"
-            value={personalInfo.user || ''}
+            value={skills.user || ''}
             onChange={onInputChange}
           />
         </div>
@@ -69,4 +65,4 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
   );
 };
 
-export default PersonalInfoForm;
+export default skillsForm;

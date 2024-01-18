@@ -4,19 +4,27 @@ import axios from 'axios';
 //import { useNavigate } from 'react-router-dom';
 
 
-// Import your form components for personal information and skills
+
 import PersonalInfoForm from './PersonalInfoForm.tsx';
-//import SkillsForm from './SkillsForm';
+import skillsForm from './skillsForm.tsx';
+import exprienceForm from './experienceForm.tsx';
 
 interface PersonalInfo {
-  // Example structure, adjust according to your data
-  name: string;
+ 
+  full_name: string;
   email: string;
-  // ... other fields
+  user: string;
+  
+}
+
+interface skillsForm {
+  user: string;
+  skill_name: string;
 }
 
 interface FormData {
   personalInfo: PersonalInfo;
+  skillsForm: skillsForm;
   
 }
 
@@ -25,10 +33,15 @@ const ResumeForm: React.FC = () => {
   //const history = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     personalInfo: {
-      name: '',
+      full_name: '',
       email: '',
-      // ... set other fields to their initial values or empty strings
+      user:'',
+     
     },
+    skillsForm: {
+      user: '',
+      skill_name:'',
+    }
    
   });
   const [step, setStep] = useState<number>(1);
@@ -43,18 +56,35 @@ const ResumeForm: React.FC = () => {
     });
   };
 
+
+
   const handleSubmit = () => {
-    axios.post('http://127.0.0.1:8000/core/personal-information/', formData)
+    const payload = {
+      ...formData.personalInfo // This spreads the personalInfo object into the payload
+    };
+  
+    axios.post('http://127.0.0.1:8000/core/personal-information/', payload)
       .then(response => {
         console.log('Success:', response.data);
-        
       })
       .catch(error => {
         console.error('Error:', error);
-        // Handle error appropriately
+        
       });
+      const payloadPersonalInfo = { ...formData.personalInfo };
+  const payloadAdditionalInfo = { ...formData.additionalInfo };
+  // More payloads for other steps...
+
+  axios.post('http://127.0.0.1:8000/core/personal-information/', payloadPersonalInfo)
+    .then(response => { /* ... */ })
+    .catch(error => { /* ... */ });
+
+  axios.post('http://127.0.0.1:8000/core/additional-information/', payloadAdditionalInfo)
+    .then(response => { /* ... */ })
+    .catch(error => { /* ... */ });
   };
 
+  
   const renderFormStep = () => {
     switch (step) {
       case 1:
@@ -64,14 +94,14 @@ const ResumeForm: React.FC = () => {
           personalInfo={formData.personalInfo}
           />
         );
-      // case 2:
-      //   return (
-      //     <SkillsForm
-      //       handleChange={(data: Skill[]) => handleChange('skills', data)}
-      //       skills={formData.skills}
-      //     />
-      //   );
-      // Add more cases for additional sections
+      case 2:
+        return (
+          <SkillsForm
+            handleChange={(data: Skill[]) => handleChange('skills', data)}
+            skills={formData.skills}
+          />
+        );
+      
 
       default:
         return null;
