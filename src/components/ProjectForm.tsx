@@ -1,25 +1,29 @@
-// PersonalInfoForm.tsx
+// EducationForm.tsx
 import React from 'react';
 
-interface WorkExperienceFormsProps {
-  handleChange: (info: WorkExperienceForm) => void;
+interface ProjectFormsProps {
+  handleChange: (info: ProjectForm) => void;
   
-  WorkExperienceForm: WorkExperienceForm;
+  ProjectForm: ProjectForm;
 }
 
-interface WorkExperienceForm {
+interface ProjectForm {
+  
   full_name?: string;
   email?: string;
   user?: string;
+  phone_number?: string;
   address?: string;
-  // Add more fields as required
+  linkedin_profile?: string;
+  github_profile?: string;
+  
 }
 
-const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange, WorkExperienceForm }) => {
+const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }) => {
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange({
-      ...WorkExperienceForm,
+      ...ProjectForm,
       [name]: value,
     });
   };
@@ -28,14 +32,14 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
     <div>
       <h2>Personal Information</h2>
       <form>
-       
+      
         <div>
           <label htmlFor="Full Name">Full Name:</label>
           <input
             type="text"
             id="full_name"
             name="full_name"
-            value={WorkExperienceForm.full_name || ''}
+            value={ProjectForm.full_name || ''}
             onChange={onInputChange}
           />
         </div>
@@ -45,7 +49,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             type="text"
             id="email"
             name="email"
-            value={WorkExperienceForm.email || ''}
+            value={ProjectForm.email || ''}
             onChange={onInputChange}
           />
         </div>
@@ -55,7 +59,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             type="text"
             id="user"
             name="user"
-            value={WorkExperienceForm.user || ''}
+            value={ProjectForm.user || ''}
             onChange={onInputChange}
           />
         </div>
@@ -65,4 +69,4 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
   );
 };
 
-export default WorkExperienceForms;
+export default ProjectForms;

@@ -4,7 +4,7 @@ import React from 'react';
 interface skillsFormProps {
   handleChange: (info: skills) => void;
   
-  skills: skills;
+  skillsForm: skills;
 }
 
 interface skills {
@@ -15,11 +15,11 @@ interface skills {
   // Add more fields as required
 }
 
-const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skills }) => {
+const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => {
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange({
-      ...skills,
+      ...skillsForm,
       [name]: value,
     });
   };
@@ -35,7 +35,7 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skills }) => {
             type="text"
             id="full_name"
             name="full_name"
-            value={skills.full_name || ''}
+            value={skillsForm.full_name || ''}
             onChange={onInputChange}
           />
         </div>
@@ -45,7 +45,7 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skills }) => {
             type="text"
             id="email"
             name="email"
-            value={skills.email || ''}
+            value={skillsForm.email || ''}
             onChange={onInputChange}
           />
         </div>
@@ -55,7 +55,7 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skills }) => {
             type="text"
             id="user"
             name="user"
-            value={skills.user || ''}
+            value={skillsForm.user || ''}
             onChange={onInputChange}
           />
         </div>
