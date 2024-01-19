@@ -60,7 +60,7 @@ interface FormData {
 }
 
 
-const ResumeForm: React.FC = () => {
+const ResumeForm: React.FC = (): JSX.Element=> {
   //const history = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     personalInfo: {
@@ -101,8 +101,13 @@ const ResumeForm: React.FC = () => {
   });
   const [step, setStep] = useState<number>(1);
 
-  const nextStep = () => setStep(step + 1);
-  const prevStep = () => setStep(step - 1);
+ // const nextStep = () => setStep(step + 1);
+ const nextStep = () => {
+  console.log("Current step before increment:", step);
+  setStep(step + 1);
+  console.log("New step:", step + 1);
+}; 
+ const prevStep = () => setStep(step - 1);
 
   const handleChange = (section: keyof FormData, data: any) => { // You can replace 'any' with a more specific type
     setFormData({
@@ -172,8 +177,9 @@ const ResumeForm: React.FC = () => {
         console.error('Error:', error);
         
       });  
-  
+    };
   const renderFormStep = () => {
+    console.log("Rendering form for step:", step);
     switch (step) {
       case 1:
         return (
@@ -220,14 +226,18 @@ const ResumeForm: React.FC = () => {
     <div>
       <h1>Resume Builder</h1>
       <form onSubmit={(e) => e.preventDefault()}>
+        <div key={step}>
         {renderFormStep()}
-        <div>
-          {step > 1 && <button type="button" onClick={prevStep}>Previous</button>}
-          {step < 3 ? <button type="button" onClick={nextStep}>Next</button> : <button type="button" onClick={handleSubmit}>Submit</button>}
         </div>
+        
+        <div>
+  {step > 1 && <button type="button" onClick={prevStep}>Previous</button>}
+  {step < 5 ? <button type="button" onClick={nextStep}>Next</button> : <button type="button" onClick={handleSubmit}>Submit</button>}
+</div>
+        
       </form>
     </div>
   );
 };
-}
+
 export default ResumeForm;
