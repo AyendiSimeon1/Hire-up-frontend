@@ -8,10 +8,9 @@ interface skillsFormProps {
 }
 
 interface skills {
-  full_name?: string;
-  email?: string;
+  
   user?: string;
-  address?: string;
+  skill_name?: string;
   // Add more fields as required
 }
 
@@ -26,30 +25,10 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => 
 
   return (
     <div>
-      <h2>Personal Information</h2>
+      <h2>Skill Form</h2>
       <form>
-        {/* Form fields here */}
-        <div>
-          <label htmlFor="Full Name">Full Name:</label>
-          <input
-            type="text"
-            id="full_name"
-            name="full_name"
-            value={skillsForm.full_name || ''}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={skillsForm.email || ''}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
+
+      <div>
           <label htmlFor="user">User:</label>
           <input
             type="text"
@@ -59,6 +38,17 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => 
             onChange={onInputChange}
           />
         </div>
+        <div>
+          <label htmlFor="skill_name">skill_name:</label>
+          <input
+            type="text"
+            id="skill_name"
+            name="skill_name"
+            value={skillsForm.skill_name || ''}
+            onChange={onInputChange}
+          />
+        </div>
+      
         
       </form>
     </div>

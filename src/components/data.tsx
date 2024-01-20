@@ -103,7 +103,6 @@ const ResumeForm: React.FC = (): JSX.Element=> {
 
  // const nextStep = () => setStep(step + 1);
  const nextStep = () => {
-  console.log("Current step before increment:", step);
   setStep(step + 1);
   console.log("New step:", step + 1);
 }; 
@@ -179,7 +178,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
       });  
     };
   const renderFormStep = () => {
-    console.log("Rendering form for step:", step);
+
     switch (step) {
       case 1:
         return (
