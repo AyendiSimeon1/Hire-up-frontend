@@ -28,7 +28,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
 
   return (
     <div>
-      <h2>Personal Information</h2>
+      <h2>Experience Form</h2>
       <form>
 
       <div>

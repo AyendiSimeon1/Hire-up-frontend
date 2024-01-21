@@ -177,6 +177,27 @@ const ResumeForm: React.FC = (): JSX.Element=> {
         
       });  
     };
+function DowloadPdf  ()  {
+  axios({
+    url: 'http://127.0.0.1:8000/resume-templates/',
+    method: 'GET',
+    responseType: 'blob'
+  })
+  .then ((response) => {
+    const pdfBlob = new Blob([response.data], {type: 'application/pdf'});
+    const downloadUrl = window.URL.createObjectURL(pdfBlob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = downloadUrl;
+    downloadLink.setAttribute('download', 'resume.pdf'); // Any file name
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
+  }).catch (error => {
+    console.error('This is an error message', error);
+  });
+}
+  
   const renderFormStep = () => {
 
     switch (step) {
@@ -224,6 +245,8 @@ const ResumeForm: React.FC = (): JSX.Element=> {
   return (
     <div>
       <h1>Resume Builder</h1>
+      <button onClick={DowloadPdf}>Download PDF</button>
+
       <form onSubmit={(e) => e.preventDefault()}>
         <div key={step}>
         {renderFormStep()}
