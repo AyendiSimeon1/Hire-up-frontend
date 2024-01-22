@@ -179,7 +179,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
     };
 function DowloadPdf  ()  {
   axios({
-    url: 'http://127.0.0.1:8000/resume-templates/',
+    url: 'http://127.0.0.1:8000/core/resume-templates/',
     method: 'GET',
     responseType: 'blob'
   })

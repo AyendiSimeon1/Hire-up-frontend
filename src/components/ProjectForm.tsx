@@ -30,7 +30,7 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
 
   return (
     <div>
-      <h2>Personal Information</h2>
+      <h2>Project Form</h2>
       <form>
       
         <div>
