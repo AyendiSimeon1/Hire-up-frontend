@@ -9,6 +9,9 @@ const Homepage:React.FC = () => {
         </div>
     )
 
+
 }
+
+// #34568B #FFFFFF #343A40
 
 export default Homepage;
