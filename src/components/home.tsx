@@ -1,3 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 const Homepage:React.FC = () => {
     return(
         <div>
