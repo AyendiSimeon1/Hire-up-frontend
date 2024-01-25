@@ -1,0 +1,15 @@
+.svg-container {
+    /* Example gradient background */
+    background: linear-gradient(135deg, #89D4CF 0%, #6e8ea5 100%);
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Adjust this style depending on your SVG's dimensions */
+  .svg-container svg {
+    width: 100%;
+    height: auto;
+  }
