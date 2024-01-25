@@ -1,4 +1,5 @@
 import './hero.css';
+import resume from '../../../assets/resumes.png';
 
 const Hero = () => {
     return (
@@ -10,12 +11,14 @@ const Hero = () => {
             <p className="lead">
               Create a professional resume with the help of AI technology.
             </p>
+            <button className='btn btn-lg gradient-button'>Gradient Button</button>
           </div>
+          
   
           {/* SVG Column */}
           <div className="col-md-6">
             <div className="svg-container">
-              {/* Insert your SVG here */}
+              <img src={resume} />
             </div>
           </div>
         </div>

@@ -13,3 +13,15 @@
     width: 100%;
     height: auto;
   }
+
+
+  .gradient-button {
+    background: linear-gradient(45deg, #007bff, #6610f2); /* Example gradient */
+    border: none;
+    color: white; /* Text color */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.gradient-button:hover {
+    background: linear-gradient(45deg, #0056b3, #520d9b); /* Darker gradient on hover */
+}

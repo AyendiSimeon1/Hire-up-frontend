@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './layouts/navbar/navbar.tsx';
 import Hero from './layouts/hero/hero.tsx';
+import Footer from './layouts/footer/footer.tsx';
 
 const Homepage:React.FC = () => {
     return(
@@ -8,6 +9,8 @@ const Homepage:React.FC = () => {
         <Navbar />
 
         <Hero />
+
+        <Footer />
         </>
     )
 
