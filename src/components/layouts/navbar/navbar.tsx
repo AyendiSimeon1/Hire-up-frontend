@@ -11,7 +11,7 @@ const Navbar = () => {
           <ul className="navbar-nav">
             <li className="nav-item active">
               <a className="nav-link custom-link" href="#">
-                Home <span className="sr-only">(current)</span>
+                Home 
               </a>
             </li>
             <li className="nav-item">
