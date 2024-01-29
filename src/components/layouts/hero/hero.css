@@ -16,7 +16,7 @@
 
 
   .gradient-button {
-    margin: 10px;
+    margin-bottom: 10px;
     font-size: 30px;
     background: linear-gradient(45deg, #007bff, #6610f2); /* Example gradient */
     border: none;
