@@ -3,15 +3,16 @@ import resume from '../../../assets/resumes.png';
 
 const Hero = () => {
     return (
+      <div className='hero'>
         <div className="container mt-5">
         <div className="row align-items-center">
           {/* Text Column */}
           <div className="col-md-6">
-            <h1 className="display-4">Build An AI Resume</h1>
+            <h1 className="display-4">Best AI Resume Builder</h1>
             <p className="lead">
-              Create a professional resume with the help of AI technology.
+            Easily create the perfect resume for any job using our best-in-class resume builder platform.
             </p>
-            <button className='btn btn-lg gradient-button'>Gradient Button</button>
+            <button className='btn btn-lg gradient-button'>Build Resume </button>
           </div>
           
   
@@ -22,6 +23,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
 }

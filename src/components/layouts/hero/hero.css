@@ -16,6 +16,8 @@
 
 
   .gradient-button {
+    margin: 10px;
+    font-size: 30px;
     background: linear-gradient(45deg, #007bff, #6610f2); /* Example gradient */
     border: none;
     color: white; /* Text color */
@@ -23,5 +25,19 @@
 }
 
 .gradient-button:hover {
-    background: linear-gradient(45deg, #0056b3, #520d9b); /* Darker gradient on hover */
+  color: white;
+  background: linear-gradient(45deg, #0056b3, #520d9b); /* Darker gradient on hover */
+}
+
+.hero {
+  background-color: #fdfeff;
+}
+
+.hero h1{
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero p {
+  font-size: 25px;
 }
