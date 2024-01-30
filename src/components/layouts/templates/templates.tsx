@@ -4,6 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import './templates.css';
 import 'slick-carousel/slick/slick-theme.css';
 import resumeImage from '../../../../public/images/resume.png';
+import template1 from '../../../assets/template1.jpg';
+import template2 from '../../../assets/template2.jpg';
+import template3 from '../../../assets/template3.jpg';
+
 
 interface Template {
     image: string;
@@ -15,29 +19,24 @@ interface Template {
   const ResumeTemplateSlider: React.FC = () => {
     const templates: Template[] = [
       {
-        image: resumeImage,
+        image: template1,
         title: 'Professional Resume',
         description: 'This template emphasizes skills and work experience.',
         link: '/',
       },
       {
-        image: resumeImage,
+        image: template2,
         title: 'Creative CV',
         description: 'A visually appealing template with a creative layout.',
         link: '/'
       },
       {
-        image: resumeImage,
+        image: template2,
         title: 'Creative CV',
         description: 'A visually appealing template with a creative layout.',
         link: '/',
       },
-      {
-        image: resumeImage,
-        title: 'Creative CV',
-        description: 'A visually appealing template with a creative layout.',
-        link: '/',
-      },
+    
       // Add more templates as needed
     ];
   
@@ -68,9 +67,10 @@ interface Template {
                 className="img-fluid"
               />
               <div className="carousel-caption">
-                <h5>{template.title}</h5>
-                <a href={template.link} target="_blank" rel="noopener noreferrer">Resume</a>
-                <p>{template.description}</p>
+                
+                <button className='btn btn-primary'>
+                  <a href={template.link} target="_blank" rel="noopener noreferrer">Resume</a>
+                  </button>
               </div>
             </div>
           ))}

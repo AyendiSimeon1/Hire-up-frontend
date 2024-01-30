@@ -1,3 +1,5 @@
+import './testimonials.css';
+
 interface Testimonial {
     text:string;
     author: string;
@@ -22,14 +24,23 @@ const Testimonials : React.FC = () => {
   
 
     return (
-        <div>
+        <div className='testimonial-contaner'>
             <div className="testimonial">
                 <div className="testimonial-content">
                     {testimonial.map((testimonials, index) => (
                         <div key={index}>
-                        <p className="testimonial-text">{ testimonials.text}</p>
-                        <p className=" testimonial-author">{ testimonials.author}</p>
-                        { testimonials.image && <img src={ testimonials.image} alt={ testimonials.author} className=" testimonials-image" />}
+                        <div className="testimonial-container">
+                            <div className="testimonial-card">
+                                <div className="testimonial-content">
+                                <img src={testimonials.image} alt={testimonials.author} className="testimonial-image" />
+                                <p className="testimonial-text">{testimonials.text}</p>
+                                <div className="testimonial-author">
+                                    <h5>{testimonials.author}</h5>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     ))}
                     
