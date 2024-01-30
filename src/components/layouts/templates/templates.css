@@ -1,79 +1,73 @@
-/* Custom styles for the ResumeTemplateSlider */
+.slick-slide {
+  position: relative;
+  margin: 0 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
 
-  /* Styling for the slider items */
-  .slick-slide {
-    position: relative;
-    margin: 0 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* Styling for the active (center) item */
-  .slick-center {
-    transform: scale(1.1); /* Increase the size of the active item for emphasis */
-  }
-  
-  /* Caption styles */
-  .carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0.7; /* Initially set to semi-transparent */
-  }
-  
-  /* Show caption on hover */
-  .slick-slide:hover .carousel-caption {
-    opacity: 1;
-  }
-  
-  /* Button styles */
-  .slide-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    display: inline-block;
-  }
-  
-  /* Dots (pagination) styles */
-  .slick-dots {
-    bottom: 20px;
-  }
-  
-  .slick-dots li {
-    margin: 0 5px;
+.slick-center {
+  transform: scale(1.1); 
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.7; 
+}
+
+/* Show caption on hover */
+.slick-slide:hover .carousel-caption {
+  opacity: 1;
+}
+
+/* Button styles */
+.slide-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Dots (pagination) styles */
+.slick-dots {
+  bottom: 20px;
+}
+
+.slick-dots li {
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+  button {
+    font-size: 0; /* Hide the dot content */
     width: 10px;
     height: 10px;
-    button {
-      font-size: 0; /* Hide the dot content */
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #ccc;
-      border: 2px solid #fff;
-      cursor: pointer;
-    }
+    border-radius: 50%;
+    background-color: #ccc;
+    border: 2px solid #fff;
+    cursor: pointer;
   }
-  
-  .slick-dots li.slick-active button {
-    background-color: #007bff; /* Change the active dot color */
+}
+
+.slick-dots li.slick-active button {
+  background-color: #007bff; /* Change the active dot color */
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .slick-slide {
+    margin: 0 5px;
   }
-  
-  /* Mobile responsiveness */
-  @media screen and (max-width: 768px) {
-    .slick-slide {
-      margin: 0 5px;
-    }
-  }
-  
+}
