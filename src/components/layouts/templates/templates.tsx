@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import './templates.css';
 import 'slick-carousel/slick/slick-theme.css';
-import resumeImage from '../../../../public/images/resume.png';
+
 import template1 from '../../../assets/template1.jpg';
 import template2 from '../../../assets/template2.jpg';
 import template3 from '../../../assets/template3.jpg';
@@ -68,8 +68,8 @@ interface Template {
               />
               <div className="carousel-caption">
                 
-                <button className='btn btn-primary'>
-                  <a href={template.link} target="_blank" rel="noopener noreferrer">Resume</a>
+                <button className='btn btn-secondary'>
+                  <a href={template.link} target="_blank" rel="noopener noreferrer">Use Template</a>
                   </button>
               </div>
             </div>

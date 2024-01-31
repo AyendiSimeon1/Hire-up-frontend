@@ -1,5 +1,5 @@
 import './hero.css';
-import resume from '../../../assets/resumes.png';
+import resume from '../../../assets/resume-svg.jpg';
 
 const Hero = () => {
     return (
@@ -18,8 +18,8 @@ const Hero = () => {
   
           {/* SVG Column */}
           <div className="col-md-6">
-            <div className="svg-container">
-              <img src={resume} />
+            <div className="svg-containers">
+              <img src={resume} width={500}/>
             </div>
           </div>
         </div>
