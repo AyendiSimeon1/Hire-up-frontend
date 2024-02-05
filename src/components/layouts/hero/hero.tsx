@@ -6,7 +6,6 @@ const Hero = () => {
       <div className='hero'>
         <div className="container mt-5">
         <div className="row align-items-center">
-          {/* Text Column */}
           <div className="col-md-6">
             <h1 className="display-4">Best AI Resume Builder</h1>
             <p className="lead">
