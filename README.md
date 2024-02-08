@@ -18,3 +18,7 @@ To get started with HireUp Resume Builder, follow these steps:
 
    ```bash
    git clone https://github.com/your-username/hireup-resume-builder.git
+
+2. Navigate to directory
+    ```bash
+    cd hireup-resume-builder
