@@ -16,11 +16,7 @@ const signin = () => {
                  <div> 
                      <div className="space-y-4"> 
                      <div className="row g-4"> 
-                         <div className="col-6"> 
-                         <label className="form-label text-sm font-weight-medium" >First name</label> 
-                      
-                         </div> 
-                     </div> 
+                    
                      <div className="mb-2"> 
                          <label className="form-label text-sm font-weight-medium" >Email</label> 
                          <input className="form-control" id="email" placeholder="m@example.com" /> 
@@ -30,7 +26,7 @@ const signin = () => {
                          <input className="form-control" id="password"  type="password" /> 
                      </div> 
                      <button className="btn btn-primary btn-block" type="submit"> 
-                         Sign Up 
+                         Sign In 
                      </button> 
                      </div> 
                      <hr className="my-4 bg-gray-100" /> 
