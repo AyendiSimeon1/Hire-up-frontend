@@ -1,6 +1,29 @@
-
+import { useState } from 'react';
+import axios from 'axios';
 
 const signup = () => {
+    const [ formData, setFormData] = useState ({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+
+    });
+
+    const handleChange = (e:any) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = async (e:any) => {
+        e.preventDefault();
+        try {
+            const respone = await axios.post('http://localhost:8000/register')
+            console.log('It was successful');
+        } catch(error) {
+            console.error('Signup failed')
+        }
+    }
+
 
     return (
      
