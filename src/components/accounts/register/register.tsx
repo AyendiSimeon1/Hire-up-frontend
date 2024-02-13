@@ -14,23 +14,19 @@ const signup = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = async (e:any) => {
+    const handleSubmit =  (e:any) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/register');
+            const response = axios.post('http://localhost:8000/core/register/', formData);
             console.log('It was successful');
-            console.log(response.data);
+            
         } catch(error) {
             console.error('Signup failed')
         }
     }
-
-
     return (
             <form onSubmit={handleSubmit}>
             <div className="container-fluid d-flex flex-column min-vh-100 bg-light">
-            
-            
             <main className="container-sm py-5">
                 <div className="mx-auto max-w-sm space-y-6">
                 <div className="space-y-2 text-center">
