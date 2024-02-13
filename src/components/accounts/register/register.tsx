@@ -17,7 +17,7 @@ const signup = () => {
     const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/register')
+            const response = await axios.post('http://localhost:8000/register');
             console.log('It was successful');
             console.log(response.data);
         } catch(error) {
@@ -44,20 +44,21 @@ const signup = () => {
                     <div className="row g-4">
                         <div className="col-6">
                         <label className="form-label text-sm font-weight-medium" >First name</label>
-                        <input className="form-control" id="first-name" placeholder="Lee" value={formData.firstname} onChange={handleChange} />
+                        <input className="form-control" name="firstname" value={formData.firstname} onChange={handleChange} />
+                       
                         </div>
                         <div className="col-6">
                         <label className="form-label text-sm font-weight-medium" >Last name</label>
-                        <input className="form-control" id="last-name" placeholder="Robinson" value={formData.lastname} onChange={handleChange}/>
+                        <input className="form-control" name="lastname" value={formData.lastname} onChange={handleChange}/>
                         </div>
                     </div>
                     <div className="mb-2">
                         <label className="form-label text-sm font-weight-medium" >Email</label>
-                        <input className="form-control" id="email" placeholder="m@example.com" value={formData.email} onChange={handleChange}/>
+                        <input className="form-control" name="email" placeholder="m@example.com" value={formData.email} onChange={handleChange}/>
                     </div>
                     <div className="mb-2">
                         <label className="form-label text-sm font-weight-medium" >Password</label>
-                        <input className="form-control" id="password"  type="password" value={formData.password} onChange={handleChange}/>
+                        <input className="form-control" name="password"  type="password" value={formData.password} onChange={handleChange}/>
                     </div>
                     <button className="btn btn-primary btn-block" type="submit">
                         Sign Up
