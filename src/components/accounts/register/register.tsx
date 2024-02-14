@@ -6,7 +6,9 @@ const signup = () => {
         firstname: '',
         lastname: '',
         email: '',
-        password: ''
+        username: '',
+        password1: '',
+        password2: ''
 
     });
 
@@ -14,11 +16,12 @@ const signup = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit =  (e:any) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         try {
-            const response = axios.post('http://localhost:8000/core/register/', formData);
+            const response = await axios.post('http://localhost:8000/core/register/', formData);
             console.log('It was successful');
+            console.log(response.data)
             
         } catch(error) {
             console.error('Signup failed')
@@ -37,24 +40,22 @@ const signup = () => {
                 </div>
                 <div>
                     <div className="space-y-4">
-                    <div className="row g-4">
-                        <div className="col-6">
-                        <label className="form-label text-sm font-weight-medium" >First name</label>
-                        <input className="form-control" name="firstname" value={formData.firstname} onChange={handleChange} />
-                       
-                        </div>
-                        <div className="col-6">
-                        <label className="form-label text-sm font-weight-medium" >Last name</label>
-                        <input className="form-control" name="lastname" value={formData.lastname} onChange={handleChange}/>
-                        </div>
-                    </div>
+                    
                     <div className="mb-2">
                         <label className="form-label text-sm font-weight-medium" >Email</label>
                         <input className="form-control" name="email" placeholder="m@example.com" value={formData.email} onChange={handleChange}/>
                     </div>
                     <div className="mb-2">
+                        <label className="form-label text-sm font-weight-medium" >Username</label>
+                        <input className="form-control" name="username" placeholder="m@example.com" value={formData.username} onChange={handleChange}/>
+                    </div>
+                    <div className="mb-2">
                         <label className="form-label text-sm font-weight-medium" >Password</label>
-                        <input className="form-control" name="password"  type="password" value={formData.password} onChange={handleChange}/>
+                        <input className="form-control" name="password1"  type="password" value={formData.password1} onChange={handleChange}/>
+                    </div>
+                    <div className="mb-2">
+                        <label className="form-label text-sm font-weight-medium" >Password</label>
+                        <input className="form-control" name="password2"  type="password" value={formData.password2} onChange={handleChange}/>
                     </div>
                     <button className="btn btn-primary btn-block" type="submit">
                         Sign Up

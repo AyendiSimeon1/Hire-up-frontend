@@ -1,26 +1,45 @@
 import axios from 'axios';
 import { useState } from 'react';
-const signin = () => { 
-    const [formData, setFormData] = useState({
+import { useAuth }  from '../../../authContext';
+
+const Signin = () => { 
+    const { user, login, logout } = useAuth();
+    const [userData, setUserData] = useState({
         email: '',
         password: ''
     })
 
     const handleChange = (e:any) => {       
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setUserData({ ...userData, [e.target.name]: e.target.value })
     }
 
-    const handleSubmit = (e:any) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost/signin', )
-            console.log(response.data)
-        } catch {
-            console.error('There was an error')
-        }
+    
+        const response = await axios.post('http://localhost:8000/core/login/', userData)
+            .then(response => {
+                console.log('Success:', response);
+                login(response.data.user);
+              })
+              .catch(error => {
+                console.error('Error:', error)
+              });
+              
+      
     }
   
      return ( 
+        <div>
+            {user ? (
+                <div>
+                <p>Welcome, {user.username}!</p>
+                <button onClick={logout}>Logout</button>
+                </div>
+            ) : (
+                <p>Please log in</p>
+            )}
+    
+        <form onSubmit={handleSubmit}>
              <div className="container-fluid d-flex flex-column min-vh-100 bg-light"> 
              <main className="container-sm py-5"> 
                  <div className="mx-auto max-w-sm space-y-6"> 
@@ -35,11 +54,11 @@ const signin = () => {
                      <div className="row g-4"> 
                      <div className="mb-2"> 
                          <label className="form-label text-sm font-weight-medium" >Email</label> 
-                         <input className="form-control" id="email" placeholder="m@example.com" /> 
+                         <input className="form-control" name="email" onChange={handleChange} value={userData.email} /> 
                      </div> 
                      <div className="mb-2"> 
                          <label className="form-label text-sm font-weight-medium" >Password</label> 
-                         <input className="form-control" id="password"  type="password" /> 
+                         <input className="form-control" name="password"  type="password" onChange={handleChange} value={userData.password} /> 
                      </div> 
                      <button className="btn btn-primary btn-block" type="submit"> 
                          Sign In 
@@ -60,5 +79,8 @@ const signin = () => {
                  </div>
              </main> 
              </div>
-             
+             </form>
+             </div>
              )}
+
+export default Signin;
