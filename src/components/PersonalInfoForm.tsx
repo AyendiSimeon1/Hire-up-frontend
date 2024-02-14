@@ -30,11 +30,18 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
 
   return (
     <div>
-      <h2>Personal Information</h2>
-      <form>
-      
-        <div>
-          <label htmlFor="Full Name">Full Name:</label>
+      <div className="col-lg-6">
+           <div className="mb-4">
+             <h1 className="display-4">Let's build your resume</h1>
+             <p className="text-muted">
+               Enter your information below. It will be used to generate your resume.
+             </p>
+           </div>
+           <div className="mb-4">
+             <h2 className="h4">Personal</h2>
+           </div>
+           <div className="mb-4">
+             <label htmlFor="Full Name">Full Name:</label>
           <input
             type="text"
             id="full_name"
@@ -42,9 +49,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
             value={personalInfo.full_name || ''}
             onChange={onInputChange}
           />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+           </div>
+           <div className="mb-4">
+             <label htmlFor="email">Email:</label>
           <input
             type="text"
             id="email"
@@ -52,8 +59,8 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
             value={personalInfo.email || ''}
             onChange={onInputChange}
           />
-        </div>
-        <div>
+           </div>
+           <div>
           <label htmlFor="user">User:</label>
           <input
             type="text"
@@ -63,8 +70,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
             onChange={onInputChange}
           />
         </div>
-        
-      </form>
+      </div>
     </div>
   );
 };
