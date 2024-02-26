@@ -244,9 +244,8 @@ function DowloadPdf  ()  {
 
   return (
     <div>
-      <h1>Resume Builder</h1>
-      <button onClick={DowloadPdf}>Download PDF</button>
-
+      
+     
       <form onSubmit={(e) => e.preventDefault()}>
         <div key={step}>
         {renderFormStep()}
@@ -258,6 +257,8 @@ function DowloadPdf  ()  {
 </div>
         
       </form>
+      <button onClick={DowloadPdf}>Download PDF</button>
+
     </div>
   );
 };
