@@ -8,13 +8,12 @@ interface WorkExperienceFormsProps {
 }
 
 interface WorkExperienceForm {
-  user?: string;
-  job_title?: string;
-  company?: string;
+  position_title?: string;
+  company_name?: string;
   start_date?: string;
   end_date?: string;
-  responsibilities?: string;
-  // Add more fields as required
+  work_summary?: string;
+
 }
 
 const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange, WorkExperienceForm }) => {
@@ -30,40 +29,35 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
     <div>
       <h2>Experience Form</h2>
       <form>
+      
 
-      <div>
-          <label htmlFor="user">User:</label>
+      <div className="mb-4">
+          <label className="form-label text-sm font-weight-medium">Position Title</label>
           <input
+            className="form-control"
             type="text"
             id="user"
             name="user"
-            value={WorkExperienceForm.user || ''}
+            value={WorkExperienceForm.position_title || ''}
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label htmlFor="Job Title">Job Title:</label>
+        <div className="mb-4">
+          <label className="form-label text-sm font-weight-medium">Company Name</label>
           <input
+            className="form-control"
             type="text"
-            id="job_title"
-            name="job_title"
-            value={WorkExperienceForm.job_title || ''}
+            id="company_name"
+            name="company_name"
+            value={WorkExperienceForm.company_name || ''}
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label htmlFor="company">company:</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={WorkExperienceForm.company || ''}
-            onChange={onInputChange}
-          />
         </div>
-        <div>
-          <label htmlFor="start_date">start_date:</label>
+        <div className="mb-4">
+          <label className="form-label text-sm font-weight-medium">Start Date</label>
           <input
+            className="form-control"
             type="text"
             id="start_date"
             name="start_date"
@@ -71,17 +65,28 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             onChange={onInputChange}
           />
         </div>
-        <div>
-          <label htmlFor="end_date">end_date:</label>
+        <div className="mb-4">
+          <label className="form-label text-sm font-weight-medium">End Date</label>
           <input
+            className="form-control"
             type="text"
             id="end_date"
             name="end_date"
-            value={WorkExperienceForm.end_date || ''}
+            value={WorkExperienceForm.endn_date || ''}
             onChange={onInputChange}
           />
         </div>
-        
+        <div className="mb-4">
+          <label className="form-label text-sm font-weight-medium">Work Summary</label>
+          <input
+            className="form-control"
+            type="text"
+            id="work_summary"
+            name="work_summary"
+            value={WorkExperienceForm.work_summary || ''}
+            onChange={onInputChange}
+          />
+        </div>
         
       </form>
     </div>
