@@ -30,7 +30,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="col-lg-6">
            <div className="mb-4">
              <h1 className="display-4">Let's build your resume</h1>
@@ -80,8 +80,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
           
            </div>
            <div className="mb-4">
-             <label htmlFor="email">Email:</label>
+             <label className="form-label text-sm font-weight-medium">Email:</label>
           <input
+            className="form-control"
             type="text"
             id="email"
             name="email"
@@ -90,8 +91,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
           />
            </div>
            <div>
-          <label htmlFor="phone_number">Phone No:</label>
+          <label className="form-label text-sm font-weight-medium">Phone No:</label>
           <input
+            className="form-control"
             type="text"
             id="phone_number"
             name="phone_number"
@@ -100,8 +102,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
           />
         </div>
         <div>
-          <label htmlFor="address">Address:</label>
+          <label className="form-label text-sm font-weight-medium">Address:</label>
           <input
+            className="form-control"
             type="text"
             id="address"
             name="address"
@@ -110,8 +113,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
           />
         </div>
         <div>
-          <label htmlFor="city">City:</label>
+          <label className="form-label text-sm font-weight-medium">City:</label>
           <input
+            className="form-control"
             type="text"
             id="city"
             name="city"
@@ -120,8 +124,9 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ handleChange, perso
           />
         </div>
         <div>
-          <label htmlFor="country">Country:</label>
+          <label className="form-label text-sm font-weight-medium">Country:</label>
           <input
+            className="form-control"
             type="text"
             id="country"
             name="country"
