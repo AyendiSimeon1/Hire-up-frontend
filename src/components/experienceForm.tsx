@@ -53,7 +53,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             onChange={onInputChange}
           />
         </div>
-        </div>
+        
         <div className="mb-4">
           <label className="form-label text-sm font-weight-medium">Start Date</label>
           <input
