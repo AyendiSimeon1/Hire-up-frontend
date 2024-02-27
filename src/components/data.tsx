@@ -243,7 +243,7 @@ function DowloadPdf  ()  {
   };
 
   return (
-    <div>
+    <div className="container">
       
      
       <form onSubmit={(e) => e.preventDefault()}>
@@ -251,13 +251,13 @@ function DowloadPdf  ()  {
         {renderFormStep()}
         </div>
         
-        <div>
-  {step > 1 && <button type="button" onClick={prevStep}>Previous</button>}
-  {step < 5 ? <button type="button" onClick={nextStep}>Next</button> : <button type="button" onClick={handleSubmit}>Submit</button>}
+        <div className="py-3">
+  {step > 1 && <button type="button" onClick={prevStep} className="btn btn-primary">Previous</button>}
+  {step < 5 ? <button type="button" onClick={nextStep} className="btn btn-primary">Next</button> : <button type="button" onClick={handleSubmit}>Submit</button>}
 </div>
         
       </form>
-      <button onClick={DowloadPdf}>Download PDF</button>
+      <button onClick={DowloadPdf} className="btn btn-primary">Download PDF</button>
 
     </div>
   );

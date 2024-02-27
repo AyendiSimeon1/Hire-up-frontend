@@ -8,10 +8,9 @@ interface EducationFormsProps {
 }
 
 interface EducationForm {
-  user?: string;
   degree?: string;
-  institution?: string;
-  
+  institution_name?: string;
+  field_study?: string;
   start_date?: string;
   address?: string;
   end_date?: string;
@@ -29,23 +28,23 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
   };
 
   return (
-    <div>
-      <h2>Personal Information</h2>
+    <div className="container">
+      <h2>Education</h2>
       <form>
-      
-        <div>
-          <label htmlFor="User">User:</label>
+        <div className="mb-4">
+             <label className="form-label text-sm font-weight-medium">Institution Name:</label>
           <input
+            className="form-control"
             type="text"
-            id="user"
-            name="user"
-            value={EducationForm.user || ''}
+            id="email"
+            name="email"
+            value={EducationForm.institution_name || ''}
             onChange={onInputChange}
           />
-        </div>
         <div>
-          <label htmlFor="degree">degree:</label>
+          <label className="form-label text-sm font-weight-medium">degree:</label>
           <input
+            className="form-control"
             type="text"
             id="degree"
             name="degree"
@@ -54,8 +53,9 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
           />
         </div>
         <div>
-          <label htmlFor="institution">institution:</label>
+          <label className="form-label text-sm font-weight-medium">institution:</label>
           <input
+            className="form-control"
             type="text"
             id="institution"
             name="institution"
@@ -64,8 +64,9 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
           />
         </div>
         <div>
-          <label htmlFor="start_date">start_date:</label>
+          <label className="form-label text-sm font-weight-medium">start_date:</label>
           <input
+            className="form-control"
             type="text"
             id="start_date"
             name="start_date"
@@ -75,8 +76,9 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
         </div>
         
         <div>
-          <label htmlFor="end_date">end_date:</label>
+          <label className="form-label text-sm font-weight-medium">end_date:</label>
           <input
+            className="form-control"
             type="text"
             id="end_date"
             name="end_date"
@@ -85,109 +87,20 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
           />
         </div>
         <div>
-          <label htmlFor="description">description:</label>
+          <label className="form-label text-sm font-weight-medium">description:</label>
           <input
+            className="form-control"
             type="text"
             id="description"
             name="description"
             value={EducationForm.description || ''}
             onChange={onInputChange}
           />
-        </div>
-        
-        
-      </form>
+        </div> 
+     
     </div>
-  );
-};
+    </form>
+    </div>
+  )};
 
 export default EducationForms;
-
-//     <div className="container">
-//       <div className="row py-5">
-//         <div className="col-lg-6">
-//           <div className="mb-4">
-//             <h1 className="display-4">Let's build your resume</h1>
-//             <p className="text-muted">
-//               Enter your information below. It will be used to generate your resume.
-//             </p>
-//           </div>
-//           <div className="mb-4">
-//             <h2 className="h4">Personal</h2>
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="name">Name</Label>
-//             <Input id="name" placeholder="Enter your name" required />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="email">Email</Label>
-//             <Input id="email" placeholder="Enter your email" required type="email" />
-//           </div>
-//           <div className="mb-4">
-//             <Textarea id="address" placeholder="Enter your address">
-//               Address
-//             </Textarea>
-//           </div>
-//           <div className="mb-4">
-//             <h2 className="h4">Experience</h2>
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="company1">Company</Label>
-//             <Input id="company1" placeholder="Enter company name" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="position1">Position</Label>
-//             <Input id="position1" placeholder="Enter position" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="company2">Company</Label>
-//             <Input id="company2" placeholder="Enter company name" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="position2">Position</Label>
-//             <Input id="position2" placeholder="Enter position" />
-//           </div>
-//           <div className="mb-4">
-//             <h2 className="h4">Education</h2>
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="institute1">Institute</Label>
-//             <Input id="institute1" placeholder="Enter institute name" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="degree1">Degree</Label>
-//             <Input id="degree1" placeholder="Enter degree" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="institute2">Institute</Label>
-//             <Input id="institute2" placeholder="Enter institute name" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="degree2">Degree</Label>
-//             <Input id="degree2" placeholder="Enter degree" />
-//           </div>
-//           <div className="mb-4">
-//             <h2 className="h4">Skills</h2>
-//           </div>
-//           <div className="mb-4">
-//             <Textarea id="skills" placeholder="Enter your skills" />
-//           </div>
-//           <div className="mb-4">
-//             <h2 className="h4">Contact</h2>
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="phone">Phone</Label>
-//             <Input id="phone" placeholder="Enter your phone number" />
-//           </div>
-//           <div className="mb-4">
-//             <Label htmlFor="website">Website</Label>
-//             <Input id="website" placeholder="Enter your website" />
-//           </div>
-//         </div>
-//         <div className="col-lg-6 d-flex flex-column justify-content-between min-vh-100">
-//           <Button className="align-self-end" size="lg">
-//             Save Changes
-//           </Button>
-//         </div>
-//       </div>
-// </div>
