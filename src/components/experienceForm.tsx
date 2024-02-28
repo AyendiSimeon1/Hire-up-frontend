@@ -72,7 +72,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             type="text"
             id="end_date"
             name="end_date"
-            value={WorkExperienceForm.endn_date || ''}
+            value={WorkExperienceForm.end_date || ''}
             onChange={onInputChange}
           />
         </div>
