@@ -8,8 +8,6 @@ interface skillsFormProps {
 }
 
 interface skills {
-  
-  user?: string;
   skill_name?: string;
   // Add more fields as required
 }
