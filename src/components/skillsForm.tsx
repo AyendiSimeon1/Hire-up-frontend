@@ -27,27 +27,19 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => 
     <div>
       <h2>Skill Form</h2>
       <form>
-
-      <div>
-          <label htmlFor="user">User:</label>
+      <div className="mb-4">
+             <label className="form-label text-sm font-weight-medium">Skills</label>
           <input
-            type="text"
-            id="user"
-            name="user"
-            value={skillsForm.user || ''}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="skill_name">skill_name:</label>
-          <input
+            className="form-control"
+            placeholder="m@example.com"
             type="text"
             id="skill_name"
             name="skill_name"
             value={skillsForm.skill_name || ''}
             onChange={onInputChange}
           />
-        </div>
+          
+      </div>
       
         
       </form>
