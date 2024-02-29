@@ -8,7 +8,7 @@ interface skillsFormProps {
 }
 
 interface skills {
-  skill_name?: string;
+  name?: string;
   // Add more fields as required
 }
 
@@ -31,9 +31,9 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => 
             className="form-control"
             placeholder="m@example.com"
             type="text"
-            id="skill_name"
-            name="skill_name"
-            value={skillsForm.skill_name || ''}
+            id="name"
+            name="name"
+            value={skillsForm.name || ''}
             onChange={onInputChange}
           />
           

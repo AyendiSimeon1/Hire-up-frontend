@@ -16,6 +16,8 @@ interface WorkExperienceForm {
 
 }
 
+
+
 const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange, WorkExperienceForm }) => {
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,9 +36,9 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
           <input
             className="form-control"
             type="text"
-            id="user"
-            name="user"
-            value={WorkExperienceForm.position_title || ''}
+            id="postiion_title"
+            name="postiion_title"
+            value= {WorkExperienceForm.position_title || ''}
             onChange={onInputChange}
           />
         </div>
@@ -61,6 +63,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             value={WorkExperienceForm.start_date || ''}
             onChange={onInputChange}
           />
+
         </div>
         <div className="mb-4">
           <label className="form-label text-sm font-weight-medium">End Date</label>
@@ -84,8 +87,10 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             onChange={onInputChange}
           />
         </div>
+        
       </form>
     </div>
+    
   );
 };
 

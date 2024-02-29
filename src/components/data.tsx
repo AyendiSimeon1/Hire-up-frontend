@@ -13,13 +13,14 @@ import ProjectForms from './ProjectForm.tsx';
 
 interface PersonalInfo {
  
-  full_name: string;
+  first_name: string;
+  last_name: string;
   email: string;
   user: string;
   
 }
 interface EducationForm {
-  user: string;
+ 
   degree: string;
   institution:string;
   start_date:string;
@@ -28,7 +29,7 @@ interface EducationForm {
 }
 
 interface WorkExperienceForm {
-  user:string;
+
   job_title: string;
   company: string;
   start_date:string;
@@ -37,12 +38,12 @@ interface WorkExperienceForm {
 
 }
 interface skillsForm {
-  user: string;
+ 
   skill_name: string;
 }
 
 interface ProjectForm {
-  user:string;
+
   project_name: string;
   description:string;
   start_date: string;
@@ -64,13 +65,15 @@ const ResumeForm: React.FC = (): JSX.Element=> {
   //const history = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     personalInfo: {
-      full_name: '',
+      first_name: '',
+      last_name: '',
       email: '',
-      user:'',
+      user: ''
+      
      
     },
     EducationForm: {
-      user: '',
+    
       degree: '',
       institution: '',
       start_date: '',
@@ -78,7 +81,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
       description: ''
     },
     WorkExperienceForm: {
-      user:'',
+   
       job_title: '',
       company: '',
       start_date: '',
@@ -86,11 +89,11 @@ const ResumeForm: React.FC = (): JSX.Element=> {
       responsibilities: ''
     },
     skillsForm: {
-      user: '',
+      
       skill_name:'',
     },
     ProjectForm: {
-      user:'',
+    
       project_name: '',
       description:'',
       start_date:'',
@@ -152,7 +155,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
         console.error('Error:', error);
         
       });
-    axios.post('http://127.0.0.1:8000/core/work-experience/', payloadWorkExperienceForm)
+    axios.post('http://127.0.0.1:8000/core/Professional-experience/', payloadWorkExperienceForm)
       .then(response => {
         console.log('Success:', response.data);
       })

@@ -8,8 +8,6 @@ interface ProjectFormsProps {
 }
 
 interface ProjectForm {
-  
-  user?: string;
   project_name?: string;
   description?: string;
   start_date?: string;
@@ -33,19 +31,10 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
       <h2>Project Form</h2>
       <form>
       
-        <div>
-          <label htmlFor="user">user</label>
+      <div>
+          <label className="form-label text-sm font-weight-medium">Project Name</label>
           <input
-            type="text"
-            id="user"
-            name="user"
-            value={ProjectForm.user || ''}
-            onChange={onInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="project_name">project_name:</label>
-          <input
+            className="form-control"
             type="text"
             id="project_name"
             name="project_name"
@@ -53,9 +42,11 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
             onChange={onInputChange}
           />
         </div>
+
         <div>
-          <label htmlFor="description">description:</label>
+          <label className="form-label text-sm font-weight-medium">Description</label>
           <input
+            className="form-control"
             type="text"
             id="description"
             name="description"
@@ -64,8 +55,9 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
           />
         </div>
         <div>
-          <label htmlFor="start_date">start_date:</label>
+          <label className="form-label text-sm font-weight-medium">Start Date</label>
           <input
+            className="form-control"
             type="text"
             id="start_date"
             name="start_date"
@@ -73,9 +65,11 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
             onChange={onInputChange}
           />
         </div>
+       
         <div>
-          <label htmlFor="end_date">end_date:</label>
+          <label className="form-label text-sm font-weight-medium">End Date</label>
           <input
+            className="form-control"
             type="text"
             id="end_date"
             name="end_date"
@@ -84,8 +78,9 @@ const ProjectForms: React.FC<ProjectFormsProps> = ({ handleChange, ProjectForm }
           />
         </div>
         <div>
-          <label htmlFor="url">url:</label>
+          <label className="form-label text-sm font-weight-medium">Url</label>
           <input
+            className="form-control"
             type="text"
             id="url"
             name="url"

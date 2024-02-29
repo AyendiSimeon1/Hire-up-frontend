@@ -8,8 +8,9 @@ interface EducationFormsProps {
 }
 
 interface EducationForm {
-  degree?: string;
+  
   institution_name?: string;
+  degree?: string;
   field_study?: string;
   start_date?: string;
   address?: string;
@@ -36,8 +37,8 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
           <input
             className="form-control"
             type="text"
-            id="email"
-            name="email"
+            id="institution_name"
+            name="institution_name"
             value={EducationForm.institution_name || ''}
             onChange={onInputChange}
           />
@@ -53,16 +54,17 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
           />
         </div>
         <div>
-          <label className="form-label text-sm font-weight-medium">institution:</label>
+          <label className="form-label text-sm font-weight-medium">Field </label>
           <input
             className="form-control"
             type="text"
-            id="institution"
-            name="institution"
-            value={EducationForm.institution || ''}
+            id="field_study"
+            name="field_study"
+            value={EducationForm.field_study || ''}
             onChange={onInputChange}
           />
         </div>
+        
         <div>
           <label className="form-label text-sm font-weight-medium">start_date:</label>
           <input
