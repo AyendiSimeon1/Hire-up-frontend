@@ -1,42 +1,42 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Assuming Link is from react-router-dom
 
 interface ResumeTemplate {
-    id: number;
-    name: string;
-    image: { image: string }; 
-  }
+  id: number;
+  name: string;
+  url: string; // Corrected typo in the interface
+}
 
 const ChooseTemplate: React.FC = () => {
-    const [templateId, setTemplateId] = useState([])
-    const [templates, setTemplates] = useState([])
+  const [templateId, setTemplateId] = useState<number | null>(null); // Corrected type to number or null
+  const [templates, setTemplates] = useState<ResumeTemplate[]>([]); // Corrected type to ResumeTemplate[]
 
-    useEffect(() => {
-        const fetchTemplate = async () => {
-            const response = await axios.get('http://localhost:5173/choose-template');
-            setTemplates(response.data.map((template) => ({
-                id: template.id,
-                name: template.name,
-                html: template.html,
-              })));
-           
-        }
-        fetchTemplate();
-    }, [])
-    return(
-        <div>
-        
-        {templates.map((template) => (
-          <div key={template.id}>
-            <h3>{template.name}</h3>
-            <div dangerouslySetInnerHTML={{ __html: template.html }} />
-            <Link to={`/resume-builder/${template.id}`}>Choose</Link>
-          </div>
+  useEffect(() => {
+    const fetchTemplate = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/core/resume-templates/');
+        setTemplates(response.data);
+       
+      } catch (error) {
+        console.log(error)
+      }
+    }
+     
+    fetchTemplate();
+  }, []);
+
+  return (
+    <div>
+      <h1>Hello World</h1>
+
+      <ul>
+        {templates.map(item => (
+          <li key={item.id}>{item.name}</li>
         ))}
-        {/* ... */}
-      </div>
-    );
-}
+      </ul>
+    </div>
+  );
+};
 
 export default ChooseTemplate;
