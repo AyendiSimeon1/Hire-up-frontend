@@ -1,22 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Assuming Link is from react-router-dom
+import { Link } from "react-router-dom"; 
 
 interface ResumeTemplate {
   id: number;
   name: string;
-  url: string; // Corrected typo in the interface
+  url: string; 
 }
 
 const ChooseTemplate: React.FC = () => {
-  const [templateId, setTemplateId] = useState<number | null>(null); // Corrected type to number or null
-  const [templates, setTemplates] = useState<ResumeTemplate[]>([]); // Corrected type to ResumeTemplate[]
+  const [templateId, setTemplateId] = useState<number | null>(null); 
+  const [templates, setTemplates] = useState<ResumeTemplate[]>([]); 
 
   useEffect(() => {
     const fetchTemplate = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/core/resume-templates/');
+        const response = await axios.get('http://127.0.0.1:8000/core/choose-resume-template/');
         setTemplates(response.data);
+        console.log(response.data)
        
       } catch (error) {
         console.log(error)
@@ -27,12 +28,14 @@ const ChooseTemplate: React.FC = () => {
   }, []);
 
   return (
+    
     <div>
       <h1>Hello World</h1>
 
       <ul>
         {templates.map(item => (
-          <li key={item.id}>{item.name}</li>
+          <li key={item.id}>{item.content}</li>
+          
         ))}
       </ul>
     </div>
