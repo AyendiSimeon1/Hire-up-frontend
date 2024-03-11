@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 //import { useNavigate } from 'react-router-dom';
-
-
+import resumeTemplate1 from '../../src/assets/template1.jpg';
 
 import PersonalInfoForm from './PersonalInfoForm.tsx';
 import EducationForms from './EducationForm.tsx';
 import WorkExperienceForms from './experienceForm.tsx';
 import SkillsForm from './skillsForm.tsx';
 import ProjectForms from './ProjectForm.tsx';
+import ChooseTemplate from './chooseTemplate.tsx';
 
 interface Template {
   id: string;
@@ -68,8 +68,13 @@ interface FormData {
 
 
 const ResumeForm: React.FC = (): JSX.Element=> {
-  //const history = useNavigate();
+  
   const [formData, setFormData] = useState<FormData>({
+    
+    chooseTemplate: {
+      templateId: '',
+      user: '',
+    },
     personalInfo: {
       first_name: '',
       last_name: '',
@@ -109,13 +114,23 @@ const ResumeForm: React.FC = (): JSX.Element=> {
    
   });
   const [step, setStep] = useState<number>(1);
-  const [templateId, setTemplateId] = useState<Template[]>([]);;
+  const [template, setTemplate] = useState<Template[]>([]);
+  const [templateId, setTemplateId] = useState<string>('');
+  const [isUpdated, setIsUpdated] = useState<boolean>(false);
+  const [templateArray, setTemplateArray] = useState([])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsUpdated(true);
+
+    }, 2000); 
+  }, []);
 
   useEffect(() => {
     const fetchTemplate = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/core/choose-resume-template/');
-        setTemplateId(response.data);
+        setTemplate(response.data);
         console.log(response.data)
        
       } catch (error) {
@@ -125,8 +140,9 @@ const ResumeForm: React.FC = (): JSX.Element=> {
      
     fetchTemplate();
   }, []);
-  const handleTemplateClick = (id: string) => {
+  const handleTemplateClick = (id: any) => {
     setTemplateId(id);
+    console.log('State Updated:', templateId );
   };
 
 
@@ -147,6 +163,9 @@ const ResumeForm: React.FC = (): JSX.Element=> {
 
 
   const handleSubmit = () => {
+    const payloadTemplate = {
+      ...formData.ChooseTemplateForm
+    }
     const payloadPersonalInfo = {
       ...formData.personalInfo 
     };
@@ -163,8 +182,18 @@ const ResumeForm: React.FC = (): JSX.Element=> {
     const payloadProjectForm = { 
       ...formData.ProjectForm 
     };
+
     
-  
+    
+    axios.post('http://127.0.0.1:8000/core/choose-template/', payloadTemplate)
+      .then(response => {
+        console.log('Success:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        
+      });
+
     axios.post('http://127.0.0.1:8000/core/personal-information/', payloadPersonalInfo)
       .then(response => {
         console.log('Success:', response.data);
@@ -232,13 +261,11 @@ function DowloadPdf  ()  {
     switch (step) {
       case 1:
         return(
-           <div>
-            {templateId.map(template => (
-
-              <img key={template.id} src={`http://localhost:8000/core/choose-resume-template${template.image}`} alt={`Template ${template.id}`} onClick={() => handleTemplateClick(template.id)} />
-          
-            ))}
-          </div>                      
+           
+             <ChooseTemplate handleInputChange={(data) => handleChange('chooseTemplate', data)}
+             chooseTemplateForm={formData.chooseTemplate}
+             />
+                               
         );
       case 2:
         return (
