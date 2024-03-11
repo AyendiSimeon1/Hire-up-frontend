@@ -16,8 +16,8 @@ const ChooseTemplate: React.FC<ChooseTemplateProps> = ({ handleTemplateSelection
         <label className="form-label text-sm font-weight-medium">Choose Template</label>
         {/* Render images and associate each image with a template ID */}
         <div className="template-images">
-          <img src="template1.jpg" alt="Template 1" onClick={() => handleClick('template1')} />
-          <img src="template2.jpg" alt="Template 2" onClick={() => handleClick('template2')} />
+          <img src={template1} width={300} height={300} alt="Template 1" onClick={() => handleClick('template1')} />
+          <img src={template2} width={300} height={300}  alt="Template 2" onClick={() => handleClick('template2')} />
           {/* Add more images as needed */}
         </div>
       </div>

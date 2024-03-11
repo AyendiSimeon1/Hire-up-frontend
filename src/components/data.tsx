@@ -11,7 +11,7 @@ import SkillsForm from './skillsForm.tsx';
 import ProjectForms from './ProjectForm.tsx';
 import ChooseTemplate from './chooseTemplate.tsx';
 
-interface Template {
+interface chooseTemplateForm {
   id: string;
   image: string;
 }
@@ -71,10 +71,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
   
   const [formData, setFormData] = useState<FormData>({
     
-    chooseTemplate: {
-      templateId: '',
-      user: '',
-    },
+    
     personalInfo: {
       first_name: '',
       last_name: '',
@@ -114,37 +111,36 @@ const ResumeForm: React.FC = (): JSX.Element=> {
    
   });
   const [step, setStep] = useState<number>(1);
-  const [template, setTemplate] = useState<Template[]>([]);
-  const [templateId, setTemplateId] = useState<string>('');
-  const [isUpdated, setIsUpdated] = useState<boolean>(false);
-  const [templateArray, setTemplateArray] = useState([])
+  const [selectedTemplateId, setSelectedTemplateId] = useState('');
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsUpdated(true);
-
-    }, 2000); 
-  }, []);
-
-  useEffect(() => {
-    const fetchTemplate = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:8000/core/choose-resume-template/');
-        setTemplate(response.data);
-        console.log(response.data)
-       
-      } catch (error) {
-        console.log(error)
-      }
-    }
-     
-    fetchTemplate();
-  }, []);
-  const handleTemplateClick = (id: any) => {
-    setTemplateId(id);
-    console.log('State Updated:', templateId );
+  const handleTemplateSelection = (templateId: string) => {
+    setSelectedTemplateId(templateId);
+    sendTemplateIdToEndpoint(templateId);
   };
 
+  const sendTemplateIdToEndpoint = (templateId: string) => {
+    // Implement the logic to send the template ID to the endpoint
+    console.log('Template ID:', templateId);
+    // Example fetch call to send data to the endpoint
+    fetch('your-endpoint-url', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ templateId }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Response from server:', data);
+        // Handle the response from the server if needed
+      })
+      .catch(error => {
+        console.error('Error sending data to the server:', error);
+      });
+
+
+
+    };
 
  // const nextStep = () => setStep(step + 1);
  const nextStep = () => {
@@ -262,9 +258,7 @@ function DowloadPdf  ()  {
       case 1:
         return(
            
-             <ChooseTemplate handleInputChange={(data) => handleChange('chooseTemplate', data)}
-             chooseTemplateForm={formData.chooseTemplate}
-             />
+          <ChooseTemplate handleTemplateSelection={handleTemplateSelection} />
                                
         );
       case 2:
@@ -329,6 +323,7 @@ function DowloadPdf  ()  {
     </div>
   );
 };
+
 
 export default ResumeForm;
 
