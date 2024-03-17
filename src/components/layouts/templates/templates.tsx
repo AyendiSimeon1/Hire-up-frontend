@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import template1 from '../../../assets/template1.jpg';
 import template2 from '../../../assets/template2.jpg';
-import template3 from '../../../assets/template3.jpg';
+
 
 
 interface Template {

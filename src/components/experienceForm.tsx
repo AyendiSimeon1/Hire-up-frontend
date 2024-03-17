@@ -30,7 +30,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
   return (
     <div>
       <h2>Experience Form</h2>
-      <form>
+   
       <div className="mb-4">
           <label className="form-label text-sm font-weight-medium">Position Title</label>
           <input
@@ -87,8 +87,7 @@ const WorkExperienceForms: React.FC<WorkExperienceFormsProps> = ({ handleChange,
             onChange={onInputChange}
           />
         </div>
-        
-      </form>
+      
     </div>
     
   );

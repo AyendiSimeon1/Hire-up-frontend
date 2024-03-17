@@ -1,20 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from 'axios';
-
-//import { useNavigate } from 'react-router-dom';
-import resumeTemplate1 from '../../src/assets/template1.jpg';
-
 import PersonalInfoForm from './PersonalInfoForm.tsx';
 import EducationForms from './EducationForm.tsx';
 import WorkExperienceForms from './experienceForm.tsx';
 import SkillsForm from './skillsForm.tsx';
 import ProjectForms from './ProjectForm.tsx';
-import ChooseTemplate from './chooseTemplate.tsx';
-
-interface chooseTemplateForm {
-  id: string;
-  image: string;
-}
 
 
 interface PersonalInfo {
@@ -45,7 +35,8 @@ interface WorkExperienceForm {
 }
 interface skillsForm {
  
-  skill_name: string;
+  name: string;
+  skills: string[];
 }
 
 interface ProjectForm {
@@ -113,55 +104,48 @@ const ResumeForm: React.FC = (): JSX.Element=> {
   const [step, setStep] = useState<number>(1);
   const [selectedTemplateId, setSelectedTemplateId] = useState('');
 
+
   const handleTemplateSelection = (templateId: string) => {
     setSelectedTemplateId(templateId);
     sendTemplateIdToEndpoint(templateId);
   };
 
   const sendTemplateIdToEndpoint = (templateId: string) => {
-    // Implement the logic to send the template ID to the endpoint
+    
     console.log('Template ID:', templateId);
-    // Example fetch call to send data to the endpoint
-    fetch('your-endpoint-url', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ templateId }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Response from server:', data);
-        // Handle the response from the server if needed
+
+    const url = 'http://localhost:8000/core/choose-resume-template/';
+    const data = {
+      template_name: selectedTemplateId
+    };
+   
+    axios.post(url, data)
+      .then(response => {
+        console.log('Template selection successful:', response.data);
       })
       .catch(error => {
-        console.error('Error sending data to the server:', error);
+        console.error('There was an error', error);
       });
 
 
 
     };
-
- // const nextStep = () => setStep(step + 1);
+   
  const nextStep = () => {
   setStep(step + 1);
   console.log("New step:", step + 1);
 }; 
  const prevStep = () => setStep(step - 1);
 
-  const handleChange = (section: keyof FormData, data: any) => { // You can replace 'any' with a more specific type
+  const handleChange = (section: keyof FormData, data: any) => { 
     setFormData({
       ...formData,
       [section]: data,
     });
   };
 
-
-
   const handleSubmit = () => {
-    const payloadTemplate = {
-      ...formData.ChooseTemplateForm
-    }
+   
     const payloadPersonalInfo = {
       ...formData.personalInfo 
     };
@@ -181,14 +165,7 @@ const ResumeForm: React.FC = (): JSX.Element=> {
 
     
     
-    axios.post('http://127.0.0.1:8000/core/choose-template/', payloadTemplate)
-      .then(response => {
-        console.log('Success:', response.data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        
-      });
+    
 
     axios.post('http://127.0.0.1:8000/core/personal-information/', payloadPersonalInfo)
       .then(response => {
@@ -314,11 +291,13 @@ function DowloadPdf  ()  {
         
         <div className="py-3">
   {step > 1 && <button type="button" onClick={prevStep} className="btn btn-primary">Previous</button>}
-  {step < 6 ? <button type="button" onClick={nextStep} className="btn btn-primary">Next</button> : <button type="button" onClick={handleSubmit}>Submit</button>}
+  {step < 6 ? 
+  <button type="button" onClick={nextStep} className="btn btn-primary">Next</button> :
+   <button type="button" onClick={handleSubmit}>Submit</button> }
 </div>
         
       </form>
-      <button onClick={DowloadPdf} className="btn btn-primary">Download PDF</button>
+      {step > 5 ? <button onClick={DowloadPdf} className="btn btn-primary">Download PDF</button> : <br /> }
 
     </div>
   );

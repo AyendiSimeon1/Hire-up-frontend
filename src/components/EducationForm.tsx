@@ -31,7 +31,7 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
   return (
     <div className="container">
       <h2>Education</h2>
-      <form>
+   
         <div className="mb-4">
              <label className="form-label text-sm font-weight-medium">Institution Name:</label>
           <input
@@ -101,7 +101,7 @@ const EducationForms: React.FC<EducationFormsProps> = ({ handleChange, Education
         </div> 
      
     </div>
-    </form>
+
     </div>
   )};
 

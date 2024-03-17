@@ -2,14 +2,14 @@
 import React from 'react';
 
 interface skillsFormProps {
-  handleChange: (info: skills) => void;
+  handleChange: (info: skillsForm) => void;
   
-  skillsForm: skills;
+  skillsForm: skillsForm;
 }
 
-interface skills {
+interface skillsForm {
   name?: string;
-  // Add more fields as required
+  skills?: string[];
 }
 
 const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => {
@@ -33,6 +33,16 @@ const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => 
             type="text"
             id="name"
             name="name"
+            value={skillsForm.name || ''}
+            onChange={onInputChange}
+          />
+          <label className="form-label text-sm font-weight-medium">Skills</label>
+          <input
+            className="form-control"
+            placeholder="m@example.com"
+            type="text"
+            id="skills"
+            name="skills"
             value={skillsForm.name || ''}
             onChange={onInputChange}
           />
