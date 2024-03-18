@@ -5,7 +5,7 @@ import EducationForms from './EducationForm.tsx';
 import WorkExperienceForms from './experienceForm.tsx';
 import SkillsForm from './skillsForm.tsx';
 import ProjectForms from './ProjectForm.tsx';
-import ChooseTemplate from './ChooseTemplate.tsx'
+import ChooseTemplate from './chooseTemplate.tsx'
 
 interface PersonalInfo {
  

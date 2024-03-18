@@ -9,7 +9,7 @@ interface skillsFormProps {
 
 interface skillsForm {
   name?: string;
-  skills?: string[];
+  skills?: string;
 }
 
 const skillsForm: React.FC<skillsFormProps> = ({ handleChange, skillsForm }) => {
