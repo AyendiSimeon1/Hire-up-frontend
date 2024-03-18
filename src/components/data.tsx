@@ -36,7 +36,7 @@ interface WorkExperienceForm {
 interface skillsForm {
  
   name: string;
-  skills: string[];
+  skills: string;
 }
 
 interface ProjectForm {
