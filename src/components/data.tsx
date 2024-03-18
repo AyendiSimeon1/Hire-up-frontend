@@ -5,7 +5,7 @@ import EducationForms from './EducationForm.tsx';
 import WorkExperienceForms from './experienceForm.tsx';
 import SkillsForm from './skillsForm.tsx';
 import ProjectForms from './ProjectForm.tsx';
-
+import ChooseTemplate from './ChooseTemplate.tsx'
 
 interface PersonalInfo {
  
@@ -89,7 +89,8 @@ const ResumeForm: React.FC = (): JSX.Element=> {
     },
     skillsForm: {
       
-      skill_name:'',
+      name:'',
+      skills: ''
     },
     ProjectForm: {
     

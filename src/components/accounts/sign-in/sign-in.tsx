@@ -18,7 +18,7 @@ const Signin = () => {
     const handleSubmit = async (e:any) => {
         e.preventDefault();
     
-        const response = await axios.post('http://localhost:8000/core/login/', userData)
+        await axios.post('http://localhost:8000/core/login/', userData)
             .then(response => {
                 console.log('Success:', response.data);
                 login(response.data.user);
